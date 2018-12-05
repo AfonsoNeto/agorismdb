@@ -1,0 +1,24 @@
+<section class="content-section" id="portfolio">
+  <div class="container">
+    <!-- <div class="content-section-heading text-center">
+      <h3 class="text-secondary mb-0">Portfolio</h3>
+      <h2 class="mb-5">AgorismDB</h2>
+    </div> -->
+
+    <div class="row no-gutters">
+      <% rand(1..99).times do %>
+        <div class="col-lg-6">
+          <a class="portfolio-item" href="#">
+            <span class="caption">
+              <span class="caption-content">
+                <h2><%= Faker::Lorem.word %></h2>
+                <p class="mb-0"><%= Faker::Lorem.sentence(rand(5..25)) %></p>
+              </span>
+            </span>
+            <div class="img-fluid" style="min-height: 354px; min-width: 100%; background: <%= Faker::Color.hex_color %>"></div>
+          </a>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
