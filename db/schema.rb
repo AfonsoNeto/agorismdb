@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_06_003119) do
+ActiveRecord::Schema.define(version: 2018_12_06_003806) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,15 @@ ActiveRecord::Schema.define(version: 2018_12_06_003119) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "category_resources", force: :cascade do |t|
+    t.bigint "category_id"
+    t.bigint "resource_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_category_resources_on_category_id"
+    t.index ["resource_id"], name: "index_category_resources_on_resource_id"
+  end
+
   create_table "resources", force: :cascade do |t|
     t.string "name", null: false
     t.string "description"
@@ -30,4 +39,6 @@ ActiveRecord::Schema.define(version: 2018_12_06_003119) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "category_resources", "categories"
+  add_foreign_key "category_resources", "resources"
 end
