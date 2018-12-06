@@ -6,16 +6,17 @@
     </div> -->
 
     <div class="row no-gutters">
-      <% rand(1..99).times do %>
+      <% @resources.decorate.each do |resource| %>
         <div class="col-lg-6">
           <a class="portfolio-item" href="#">
             <span class="caption">
               <span class="caption-content">
-                <h2><%= Faker::Lorem.word %></h2>
-                <p class="mb-0"><%= Faker::Lorem.sentence(rand(5..25)) %></p>
+                <h1><%= resource.name %></h1>
+                <h2><%= resource.inline_categories_list %></h2>
+                <p class="mb-0"><%= resource.description_for_home %></p>
               </span>
             </span>
-            <div class="img-fluid" style="min-height: 354px; min-width: 100%; background: <%= Faker::Color.hex_color %>"></div>
+            <div class="img-fluid" style="min-height: 354px; min-width: 100%; background: <%= resource.color_for_exhibition %>"></div>
           </a>
         </div>
       <% end %>
