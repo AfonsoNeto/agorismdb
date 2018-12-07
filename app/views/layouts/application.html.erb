@@ -58,9 +58,15 @@
               <button class="btn btn-outline-secondary" type="button" id="button-search"><i class='fa fa-search'></i></button>
             </div>
           </div>
+
+          <% @categories.each do |category| %>
+            <a href='#' class='badge badge-pill badge-dark'>
+              <%= category.name %>
+            </a>
+          <% end %>
         </div>
 
-        <!-- <input class="form-control form-control-lg" type="text" placeholder="Pesquisar..."> -->
+
         <!-- <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Sobre</a> -->
       </div>
       <div class="overlay"></div>
@@ -87,22 +93,28 @@
       <div class="container">
         <ul class="list-inline mb-5">
           <li class="list-inline-item">
-            <a class="social-link rounded-circle text-white mr-3" href="#">
+            <a class="social-link rounded-circle text-white mr-3" href="http://facebook.com/afonsonet0" target="_blank">
               <i class="fab fa-facebook"></i>
             </a>
           </li>
           <li class="list-inline-item">
-            <a class="social-link rounded-circle text-white mr-3" href="#">
+            <a class="social-link rounded-circle text-white mr-3" href="http://twitter.com/afonsonet0" target="_blank">
               <i class="fab fa-twitter"></i>
             </a>
           </li>
           <li class="list-inline-item">
-            <a class="social-link rounded-circle text-white" href="#">
+            <a class="social-link rounded-circle text-white" href="https://github.com/AfonsoNeto" target="_blank">
               <i class="fab fa-github"></i>
             </a>
           </li>
         </ul>
-        <p class="text-muted small mb-0">Propriedade Intelectual não existe! 2018</p>
+        <p class="text-muted small mb-0">
+          Propriedade Intelectual não existe! 2018
+        </p>
+        <p class="text-muted small mb-0">
+          Baseado no <a href='https://medium.com/@israelfinardi/70-maneiras-de-se-livrar-do-estado-6a5a758a726d' style='text-decoration: underline;' target='_blank'>Manual do Agorista
+          </a>
+        </p>
       </div>
     </footer>
 
