@@ -9,6 +9,11 @@ class ResourceDecorator < Draper::Decorator
     self.description.truncate(200)
   end
 
+  def link_for_exhibition
+    return unless self.url
+    h.link_to self.url, self.url, target: '_blank'
+  end
+
   def color_for_exhibition
     Faker::Color.hex_color
   end

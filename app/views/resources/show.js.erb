@@ -1,0 +1,6 @@
+var idModal = 'div.modal#modal-resource-show';
+var content = "<%= j(render(partial: 'show', locals: { resource: @resource })) %>";
+
+$(idModal).remove();
+$('body').append(content);
+$(idModal).modal('show');

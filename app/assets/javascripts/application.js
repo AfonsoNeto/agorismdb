@@ -15,3 +15,15 @@
 //= require_tree .
 //= require jquery.easing.min
 //= require stylish-portfolio
+
+$(document).on('ajax:beforeSend', function() {
+  $.blockUI({
+    message: 'Aguarde...', css: {
+      background: '#ffc107', border: 'none'
+    }, fadeIn: false
+  });
+
+}).on('ajax:complete', function() {
+  $.unblockUI({fadeOut: false});
+
+});

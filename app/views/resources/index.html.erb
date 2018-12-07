@@ -8,7 +8,7 @@
     <div class="row no-gutters">
       <% @resources.decorate.each do |resource| %>
         <div class="col-lg-6">
-          <a class="portfolio-item" href="#">
+          <%= link_to resource_path(resource), class: 'portfolio-item resource-on-showcase', remote: true do %>
             <span class="caption">
               <span class="caption-content">
                 <h1><%= resource.name %></h1>
@@ -16,7 +16,7 @@
               </span>
             </span>
             <div class="img-fluid" style="min-height: 354px; min-width: 100%; background: <%= resource.color_for_exhibition %>"></div>
-          </a>
+          <% end %>
         </div>
       <% end %>
     </div>
