@@ -1,24 +1,5 @@
 <section class="content-section">
   <div class="container" id="resources">
-    <!-- <div class="content-section-heading text-center">
-      <h3 class="text-secondary mb-0">Portfolio</h3>
-      <h2 class="mb-5">AgorismDB</h2>
-    </div> -->
-
-    <div class="row no-gutters">
-      <% @resources.decorate.each do |resource| %>
-        <div class="col-lg-6">
-          <%= link_to resource_path(resource), class: 'portfolio-item resource-on-showcase', remote: true do %>
-            <span class="caption">
-              <span class="caption-content">
-                <h1><%= resource.name %></h1>
-                <p class="mb-0"><%= resource.description_for_home %></p>
-              </span>
-            </span>
-            <div class="img-fluid" style="min-height: 354px; min-width: 100%; background: <%= resource.color_for_exhibition %>"></div>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
+    <%= render partial: 'index', locals: {resources: @resources} %>
   </div>
 </section>

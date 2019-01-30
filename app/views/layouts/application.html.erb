@@ -49,12 +49,7 @@
         </h3>
 
         <div class="col-md-10 offset-1">
-          <div class="input-group mb-3">
-            <input type="text" class="form-control form-control-lg" placeholder="Buscar recurso..." aria-describedby="button-search">
-            <div class="input-group-append">
-              <button class="btn btn-outline-secondary" type="button" id="button-search"><i class='fa fa-search'></i></button>
-            </div>
-          </div>
+          <%= render 'partials/search_form' %>
 
           <% @categories.each do |category| %>
             <%= category.link_to_header %>

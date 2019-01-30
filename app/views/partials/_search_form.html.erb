@@ -1,0 +1,8 @@
+<div class="mb-3">
+  <%= form_tag search_resources_path, remote: true, method: :get, class: 'input-group' do |_| %>
+    <%= text_field_tag :search_resource_query, nil, class: 'form-control form-control-lg', placeholder: 'Busar recurso...', aria: {describedby: 'button-search'} %>
+    <div class="input-group-append">
+      <button class="btn btn-outline-secondary" type="submit" id="button-search"><i class='fa fa-search'></i></button>
+    </div>
+  <% end %>
+</div>

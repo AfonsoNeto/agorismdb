@@ -1,0 +1,5 @@
+var container = $('div.container#resources');
+var content = "<%= j(render(partial: 'index', locals: { resources: @resources })) %>";
+
+container.html(content);
+container.get(0).scrollIntoView();
