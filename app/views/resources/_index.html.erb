@@ -1,4 +1,14 @@
 <% if resources = local_assigns[:resources] and resources.any? %>
+  <% if params[:search_resource_query].present? %>
+    <div class="content-section-heading text-center">
+      <h3 class="text-secondary mb-0">Buscando por:</h3>
+      <h2>"<%= params[:search_resource_query] %>"</h2>
+
+      <%= clear_search_button %>
+    </div>
+  <% end %>
+  <div class="clearfix"></div>
+
   <div class="row no-gutters">
     <% resources.decorate.each do |resource| %>
       <div class="col-lg-6">

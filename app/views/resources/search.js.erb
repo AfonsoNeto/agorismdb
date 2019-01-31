@@ -3,3 +3,5 @@ var content = "<%= j(render(partial: 'index', locals: { resources: @resources })
 
 container.html(content);
 container.get(0).scrollIntoView();
+
+$.unblockUI({fadeOut: false});
