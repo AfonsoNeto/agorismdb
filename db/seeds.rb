@@ -3,6 +3,7 @@ hotel           = Category.create(name: 'Hotel')
 hospedagem      = Category.create(name: 'Hospedagem')
 viagem          = Category.create(name: 'Viagem')
 aluguel         = Category.create(name: 'Aluguel')
+bitcoin         = Category.create(name: 'Bitcoin')
 carro           = Category.create(name: 'Carro')
 taxi            = Category.create(name: 'Táxi')
 corrida         = Category.create(name: 'Corrida')
@@ -13,6 +14,7 @@ descentralizado = Category.create(name: 'Descentralizado')
 correio         = Category.create(name: 'Correio')
 entrega         = Category.create(name: 'Entrega')
 mensagem        = Category.create(name: 'Mensagem')
+seguro          = Category.create(name: 'Seguro')
 ilegal          = Category.create(name: 'Ilegal')
 drogas          = Category.create(name: 'Drogas')
 comercio        = Category.create(name: 'Comércio')
@@ -21,6 +23,15 @@ tecnologia      = Category.create(name: 'Tecnologia')
 financiamento   = Category.create(name: 'Financiamento')
 emprestimo      = Category.create(name: 'Empréstimo')
 crowdfunding    = Category.create(name: 'Crowdfunding')
+arbitragem      = Category.create(name: 'Arbitragem')
+juizado         = Category.create(name: 'Juizado')
+farmacia        = Category.create(name: 'Farmácia')
+remedio         = Category.create(name: 'Remédios')
+seasteading     = Category.create(name: 'Seasteading')
+habitacao       = Category.create(name: 'Habitação')
+homeschooling   = Category.create(name: 'Home Schooling')
+educacao        = Category.create(name: 'Educação')
+curso           = Category.create(name: 'Cursos')
 
 Resource.create([
   {
@@ -45,7 +56,7 @@ Resource.create([
     name: "Bitcoin",
     description: "O governo arruinou o dinheiro há muito tempo. O mercado produziu cripto-moedas para usuários finais. Isso pode significar a morte do euro, do dólar e de outras moedas fiduciárias. As implicações são impressionantes e inspiradoras. Você também pode diversificar e manter uma reserva de valor de alta liquidez, exceto moeda legal.",
     url: 'www.lazooz.org',
-    categories: [moeda, descentralizado]
+    categories: [moeda, descentralizado, bitcoin]
   },
   {
     name: "E-mail",
@@ -71,4 +82,76 @@ Resource.create([
     url: "www.lendingclub.com",
     categories: [financiamento, emprestimo, crowdfunding]
   },
+  {
+    name: "Arbitranet",
+    description: "A Arbitranet é uma Câmara de Arbitragem que soluciona conflitos a custos acessíveis e por árbitros especializados. Seu conflito terá uma sentença em até 100 dias. Incluindo toda análise de alegações, documentos e audiência.",
+    url: "https://arbitranet.com.br/",
+    categories: [arbitragem, juizado]
+  },
+  {
+    name: "Couchsurfing",
+    description: "Pessoas disponibilizam suas casas para viajantes se hospedarem de graça, e sabem que, quando viajarem, também encontrarão pousada. O único sistema de controle são as opiniões dos próprios usuários publicadas no site. Qualquer um pode se cadastrar. E adivinhem: funciona muito bem",
+    url: "www.couchsurfing.com",
+    categories: [hotel, hospedagem, viagem, avaliacao]
+  },
+  {
+    name: "TOR / Deep Web",
+    description: "Esse navegador para a web criptografada rejeita seu endereço originário de IP por todo o planeta. Desse modo você pode surfar anonimamente longe dos olhos do governo.",
+    url: "www.torproject.org",
+    categories: [descentralizado, tecnologia, seguro]
+  },
+  {
+    name: "Liberty.me",
+    description: "Esse navegador para a web criptografada rejeita seu endereço originário de IP por todo o planeta. Desse modo você pode surfar anonimamente longe dos olhos do governo.",
+    url: "http://liberty.me",
+    categories: [criatividade]
+  },
+  {
+    name: "JCM Pharmacy",
+    description: "Você pode comprar seus remédios baratos de muitos países agora — de modo seguro, barato e garantido (e sem receita). Não há necessidade de pagar plano médico estatal ou a Indústria Farmacêutica. Aceitam bitcoin também.",
+    url: "http://jcmrx.es",
+    categories: [farmacia, remedio]
+  },
+  {
+    name: "Blueseed",
+    description: "É um dos primeiros exemplos de empreendimento que levarão as pessoas para o mar em busca de oportunidade e de um conjunto superior de regras.",
+    url: "https://blueseed.com/",
+    categories: [seasteading, habitacao]
+  },
+  {
+    name: "Seasteading Institute",
+    description: "O Seasteading Institute também trabalhou com sucesso com uma empresa holandesa para projetar os primeiros módulos Seasteading. Quanto mais o estado impõe impostos e regulações, mais viável é para o mar se tornar o lugar para viver e fazer negócios.",
+    url: "http://www.seasteading.org",
+    categories: [seasteading, habitacao]
+  },
+  {
+    name: "Home Schooling Brasil no Facebook",
+    description: " Se você não gosta das escolas governamentais, tire suas crianças de lá. Milhões de famílias estão fazendo isso. Algumas estão formando cooperativas virtuais e obtendo conteúdo de fontes online. O grupo no facebook Home Schooling Brasil tem muita informação sobre.",
+    url: "www.fb.com/groups/homeschoolingbrasil",
+    categories: [homeschooling, educacao]
+  },
+  {
+    name: "Ron Paul Curriculum",
+    description: "Se você está procurando um currículo academicamente rigoroso, mas que libere os pais das tarefas de criação de planos de aulas diárias e ensino prático, este currículo é para você.",
+    url: "https://www.ronpaulcurriculum.com/",
+    categories: [homeschooling, educacao]
+  },
+  {
+    name: "Portal Educacão",
+    description: "O site Portal Educação e outras fontes online estão reduzindo os custos da educação — longe das guildas infladas da educação superior e dos campos de doutrinação que usam dinheiro público.",
+    url: "www.portaleducacao.com.br",
+    categories: [homeschooling, educacao, curso]
+  },
+  {
+    name: "Khan Academy",
+    description: "A Khan Academy proporciona uma educação gratuita e de alta qualidade para todos, em qualquer lugar.",
+    url: "http://pt.khanacademy.org",
+    categories: [homeschooling, educacao, curso]
+  },
+  {
+    name: "BTCJam",
+    description: "Empreste ou invista bitcoins usando somente a confiança em acordos voluntários entre pessoas com BTCJam. Aprenda como ter lucro investindo e baixas taxas emprestando bitcoin. Há como você ver o histórico de transações e depoimentos de pessoas que concederam ou receberam empréstimos com outros usuários, igual ao Ebay e Mercado Livre.",
+    url: "http://btcjam.com.br/",
+    categories: [bitcoin, moeda, descentralizado, emprestimo]
+  }
 ])
