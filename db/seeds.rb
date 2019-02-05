@@ -43,6 +43,7 @@ roupas           = Category.create(name: 'Roupas'           )
 torrent          = Category.create(name: 'Torrent'          )
 peer_to_peer     = Category.create(name: 'Peer-to-peer'     )
 p2p              = Category.create(name: 'P2P'              )
+empreendedorismo = Category.create(name: 'Empreendedorismo' )
 
 Resource.create([
   {
@@ -236,5 +237,11 @@ Resource.create([
     description: "Se você precisa de dinheiro para iniciar um negócio, pra fazer caridade social, seja o que for, você pode contornar a tigela virtual para implorar por dinheiro. Mas não pode ser apenas com qualquer coisa velha. Você tem que convencer a multidão a abrir mão dos seus recursos. Mas essa pode ser uma barreira bem menor a ser ultrapassada do que prender a atenção de investidores de risco ou pedir um financiamento no seu banco que foi resgatado pelo governo.",
     url: "https://www.padrim.com.br/",
     categories: [crowdfunding, financiamento, criatividade]
+  },
+  {
+    name: "Artemisia",
+    description: "O estado de bem-estar social tende a tornar as pessoas suplicantes dependentes. A ajuda externa também. Mas empreendedores com causas sociais estão criando melhores formas de ajudar os pobres, desde micro finanças ao retorno das sociedades de ajuda mútua. O setor de empreendedorismo social está desfrutando um renascimento permitido pela tecnologia apesar do estado.",
+    url: "https://artemisia.org.br/",
+    categories: [financiamento, criatividade, empreendedorismo, social]
   }
 ])
