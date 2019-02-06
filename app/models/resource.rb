@@ -14,4 +14,25 @@ class Resource < ApplicationRecord
       }
     )
   end
+
+  settings index: { number_of_shards: 1 } do
+    mapping dynamic: false do
+      indexes :name,        analyzer: 'portuguese'
+      indexes :description, analyzer: 'portuguese'
+      indexes 'categories.name', analyzer: 'portuguese'
+    end
+  end
+
+  def self.search query
+    return all unless query
+
+    __elasticsearch__.search(
+      query: {
+        multi_match: {
+          query: query,
+          fields: ['name', 'description', 'categories.name', 'url']
+        }
+      }
+    ).results
+  end
 end

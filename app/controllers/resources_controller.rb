@@ -2,16 +2,12 @@ class ResourcesController < ApplicationController
   before_action :set_categories, only: :index
 
   def index
-    @resources  = Resource.eager_load(:categories).order(random)
+    @resources = Resource.eager_load(:categories).order(random).decorate
   end
 
   def search
-    @resources = Resource.joins(:categories).where(%{
-      resources.name         ILIKE :query OR
-      resources.description  ILIKE :query OR
-      categories.name        ILIKE :query OR
-      categories.description ILIKE :query
-    }, query: "%#{params[:search_resource_query]}%").distinct
+    @resources = Resource.search(params[:search_resource_query])
+    @resources = ResourceDecorator.decorate_collection(@resources)
   end
 
   def show
