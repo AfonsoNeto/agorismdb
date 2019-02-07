@@ -15,11 +15,20 @@ class Resource < ApplicationRecord
     )
   end
 
-  settings index: { number_of_shards: 1 } do
-    mapping dynamic: false do
-      indexes :name,        analyzer: 'portuguese'
-      indexes :description, analyzer: 'portuguese'
-      indexes 'categories.name', analyzer: 'portuguese'
+  settings index: {
+    number_of_shards: 1,
+    analysis: {
+      analyzer: {
+        custom_ptbr: {
+          tokenizer: "standard",
+          filter: ["lowercase", "asciifolding"]
+        }
+      }
+    }} do
+    mapping dynamic: true do
+      indexes :name,        analyzer: :custom_ptbr
+      indexes :description, analyzer: :custom_ptbr
+      indexes 'categories.name', analyzer: :custom_ptbr
     end
   end
 
@@ -28,9 +37,27 @@ class Resource < ApplicationRecord
 
     __elasticsearch__.search(
       query: {
-        multi_match: {
-          query: query,
-          fields: ['name', 'description', 'categories.name', 'url']
+        bool: {
+          should: [{
+            wildcard: {
+              name: "*#{query}*"
+            }
+          },
+          {
+            wildcard: {
+              description: "*#{query}*"
+            }
+          },
+          {
+            wildcard: {
+              'categories.name': "*#{query}*"
+            }
+          },
+          {
+            wildcard: {
+              url: "*#{query}*"
+            }
+          }]
         }
       }
     ).results

@@ -12,7 +12,7 @@
   <div class="row no-gutters">
     <% resources.each do |resource| %>
       <div class="col-lg-6">
-        <%= link_to resource_path(resource), class: 'portfolio-item resource-on-showcase', remote: true do %>
+        <%= link_to resource_path(resource.id), class: 'portfolio-item resource-on-showcase', remote: true do %>
           <span class="caption">
             <span class="caption-content">
               <h1><%= resource.name %></h1>
