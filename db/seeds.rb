@@ -67,7 +67,6 @@ Resource.create([
   {
     name: "Bitcoin",
     description: "O governo arruinou o dinheiro há muito tempo. O mercado produziu cripto-moedas para usuários finais. Isso pode significar a morte do euro, do dólar e de outras moedas fiduciárias. As implicações são impressionantes e inspiradoras. Você também pode diversificar e manter uma reserva de valor de alta liquidez, exceto moeda legal.",
-    url: 'www.lazooz.org',
     categories: [moeda, criptomoeda, descentralizado, bitcoin]
   },
   {
