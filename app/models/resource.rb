@@ -28,7 +28,7 @@ class Resource < ApplicationRecord
     mapping dynamic: true do
       indexes :name,        analyzer: :custom_ptbr
       indexes :description, analyzer: :custom_ptbr
-      indexes 'categories.name', analyzer: :custom_ptbr
+      indexes 'categories.name', analyzer: :keyword
     end
   end
 
