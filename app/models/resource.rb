@@ -34,32 +34,14 @@ class Resource < ApplicationRecord
 
   def self.search query
     return all unless query
-
     __elasticsearch__.search(
       query: {
-        bool: {
-          should: [{
-            wildcard: {
-              name: "*#{query}*"
-            }
-          },
-          {
-            wildcard: {
-              description: "*#{query}*"
-            }
-          },
-          {
-            wildcard: {
-              'categories.name': "*#{query}*"
-            }
-          },
-          {
-            wildcard: {
-              url: "*#{query}*"
-            }
-          }]
+        multi_match: {
+          query: query,
+          type: :best_fields,
+          fields: ['nameˆ3', 'description', 'categories.name^2', 'url']
         }
       }
-    ).results
+    )
   end
 end
