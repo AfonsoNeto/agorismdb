@@ -6,7 +6,7 @@ class ResourcesController < ApplicationController
   end
 
   def search
-    @resources = Resource.search(params[:search_resource_query])
+    @resources = filtered_resources_by_search_type
     @resources = ResourceDecorator.decorate_collection(@resources)
   end
 
@@ -17,4 +17,16 @@ class ResourcesController < ApplicationController
       format.js
     end
   end
+
+  private
+    def filtered_resources_by_search_type
+      category_search = params[:search_resource_query_by_category]
+
+      if category_search.present?
+        Resource.search_by_category category_search
+
+      else
+        Resource.search(params[:search_resource_query])
+      end
+    end
 end

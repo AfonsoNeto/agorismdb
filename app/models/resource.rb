@@ -21,7 +21,13 @@ class Resource < ApplicationRecord
       analyzer: {
         custom_ptbr: {
           tokenizer: "standard",
-          filter: ["lowercase", "asciifolding"]
+          filter: ["lowercase", "asciifolding", "ngrammer"]
+        }
+      },
+      filter: {
+        ngrammer: {
+          type: :nGram,
+          min_gram: 4, max_gram: 16
         }
       }
     }} do
@@ -35,32 +41,24 @@ class Resource < ApplicationRecord
 
   def self.search query
     return all unless query
-
     __elasticsearch__.search(
       query: {
-        bool: {
-          should: [{
-            wildcard: {
-              name: "*#{query}*"
-            }
-          },
-          {
-            wildcard: {
-              description: "*#{query}*"
-            }
-          },
-          {
-            wildcard: {
-              'categories.name': "*#{query}*"
-            }
-          },
-          {
-            wildcard: {
-              url: "*#{query}*"
-            }
-          }]
+        multi_match: {
+          query: query,
+          fields: ['nameˆ3', 'description', 'categories.name^2', 'url']
         }
       }
-    ).results
+    )
+  end
+
+  def self.search_by_category category_name
+    return all unless category_name
+    __elasticsearch__.search(
+      query: {
+        term: {
+          'categories.name' => category_name
+        }
+      }
+    )
   end
 end
