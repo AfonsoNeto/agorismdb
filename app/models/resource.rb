@@ -31,10 +31,11 @@ class Resource < ApplicationRecord
         }
       }
     }} do
-    mapping dynamic: true do
-      indexes :name,        analyzer: :custom_ptbr
-      indexes :description, analyzer: :custom_ptbr
-      indexes 'categories.name', analyzer: :keyword
+    mapping dynamic: :strict do
+      indexes :name,        type: 'text', analyzer: :custom_ptbr
+      indexes :description, type: 'text', analyzer: :custom_ptbr
+      indexes :url,         type: 'text', analyzer: :standard
+      indexes 'categories.name', type: 'keyword'
     end
   end
 
