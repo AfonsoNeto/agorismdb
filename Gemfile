@@ -45,6 +45,7 @@ group :development, :test do
   gem 'pry-remote'
   gem 'pry'
   gem 'rspec-rails'
+  gem 'factory_bot_rails'
 end
 
 group :development do
@@ -65,7 +66,6 @@ group :test do
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
   gem 'database_cleaner'
-  gem 'factory_bot_rails'
   gem 'simplecov-json', :require => false
   gem 'simplecov'
 end
