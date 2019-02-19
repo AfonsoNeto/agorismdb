@@ -1,15 +1,26 @@
 require 'rails_helper'
 
-# Specs in this file have access to a helper object that includes
-# the ResourcesHelper. For example:
-#
-# describe ResourcesHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       expect(helper.concat_strings("this","that")).to eq("this that")
-#     end
-#   end
-# end
 RSpec.describe ResourcesHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe ".clear_search_button" do
+    let(:search_resource_url) { search_resources_path(search_resource_query: nil) }
+    let(:expected_link_to_params) {
+      [
+        "Limpar busca",
+        search_resource_url,
+        {
+          class: 'btn btn-default btn-sm mb-5',
+          remote: true
+        }
+      ]
+    }
+
+    subject { helper.clear_search_button }
+
+    it { expect(helper).to receive(:link_to).with(*expected_link_to_params); subject }
+    it { expect(subject).to include('<a') }
+    it { expect(subject).to include("href=\"#{search_resources_path(search_resource_query: nil)}\"") }
+    it { expect(subject).to include("class=\"btn btn-default btn-sm mb-5\"") }
+    it { expect(subject).to include("data-remote=\"true\"") }
+    it { expect(subject).to include('/a>') }
+  end
 end
