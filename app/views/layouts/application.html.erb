@@ -1,6 +1,17 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <% unless Rails.env.development? %>
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-53234038-4"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '<%= ENV["GA_ANALYTICS_FOLLOW_ID"] %>');
+      </script>
+    <% end %>
+
     <title>Agorismdb</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
