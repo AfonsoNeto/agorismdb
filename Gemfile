@@ -38,6 +38,8 @@ gem 'faker'
 gem 'draper'
 gem 'elasticsearch-model'
 
+gem "webpacker"
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'awesome_print'
