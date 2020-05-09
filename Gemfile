@@ -36,7 +36,6 @@ gem 'devise'
 gem 'pry-rails'
 gem 'faker'
 gem 'draper'
-gem 'elasticsearch-model'
 
 gem "webpacker"
 
