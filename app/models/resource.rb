@@ -1,4 +1,10 @@
 class Resource < ApplicationRecord
+  include PgSearch::Model
+
+  pg_search_scope :search, against: %i[name description], using: {
+    tsearch: { dictionary: 'portuguese'}
+  }
+
   validates :name, presence: true, uniqueness: true
   has_many :category_resource
   has_many :categories, through: :category_resource
