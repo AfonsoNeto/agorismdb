@@ -3,6 +3,7 @@ class Resource < ApplicationRecord
 
   pg_search_scope :search,
                   against: { name: 'A', description: 'B' },
+                  associated_against: { categories: [:name] },
                   using: { tsearch: { dictionary: 'portuguese'} }
 
   validates :name, presence: true, uniqueness: true
